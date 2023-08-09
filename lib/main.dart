@@ -1,6 +1,6 @@
+import 'package:bloc_example/presentation/bloc/bloc_observer.dart';
 import 'package:bloc_example/presentation/category/bloc/category_bloc.dart';
 import 'package:bloc_example/presentation/home/bloc/home_bloc.dart';
-import 'package:bloc_example/presentation/home/home_page.dart';
 import 'package:bloc_example/presentation/main/bloc/main_bloc.dart';
 import 'package:bloc_example/presentation/main/main_page.dart';
 import 'package:bloc_example/presentation/profile/bloc/profile_bloc.dart';

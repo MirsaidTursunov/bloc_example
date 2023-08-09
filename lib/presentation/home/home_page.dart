@@ -7,22 +7,30 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<HomeBloc, HomeState>(
+    return BlocConsumer<HomeBloc, HomeState>(
+      listener: (_, state){
+        if (state.number == 10){
+          context.read<HomeBloc>().add(VisibleEvent());
+        }
+      },
       builder: (_, state) {
         return Scaffold(
           appBar: AppBar(
             title: const Text('Home Page'),
           ),
-          body: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Center(
-                child: Text(
-                  state.number.toString(),
-                  style: const TextStyle(fontSize: 30),
+          body: ColoredBox(
+            color: state.numberVisible == true ? Colors.green: Colors.pink,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Center(
+                  child: Text(
+                    state.number.toString(),
+                    style: const TextStyle(fontSize: 30),
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
           floatingActionButton: FloatingActionButton(
             onPressed: () {

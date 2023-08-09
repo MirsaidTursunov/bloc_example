@@ -10,45 +10,41 @@ class MainPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => BlocBuilder<MainBloc, MainState>(
-    // buildWhen: (previous, current) =>
-    // previous.bottomMenu != current.bottomMenu,
-    builder: (_, state) => Scaffold(
-      body: IndexedStack(
-        index: state.bottomMenu.index,
-        children: const [
-          HomePage(),
-          CategoryPage(),
-          ProfilePage()
-        ],
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        // key: Constants.bottomNavigatorKey,
-        onTap: (index) {
-          context
-              .read<MainBloc>()
-              .add(SetBottomMenuEvent(menu: BottomMenu.values[index]));
-        },
-        currentIndex: state.bottomMenu.index,
-        items: [
-          _navigationBarItem(
-            label: "Home",
-            icon: Icons.home,
-            activeIcon: Icons.home,
+        // buildWhen: (previous, current) =>
+        //     previous.bottomMenu != current.bottomMenu,
+        builder: (_, state) => Scaffold(
+          body: IndexedStack(
+            index: state.bottomMenu.index,
+            children: const [HomePage(), CategoryPage(), ProfilePage()],
           ),
-          _navigationBarItem(
-            label: 'Category',
-            icon: Icons.category,
-            activeIcon: Icons.category,
+          bottomNavigationBar: BottomNavigationBar(
+            // key: Constants.bottomNavigatorKey,
+            onTap: (index) {
+              context
+                  .read<MainBloc>()
+                  .add(SetBottomMenuEvent(menu: BottomMenu.values[index]));
+            },
+            currentIndex: state.bottomMenu.index,
+            items: [
+              _navigationBarItem(
+                label: "Home",
+                icon: Icons.home,
+                activeIcon: Icons.home,
+              ),
+              _navigationBarItem(
+                label: 'Category',
+                icon: Icons.category,
+                activeIcon: Icons.category,
+              ),
+              _navigationBarItem(
+                label: 'Profile',
+                icon: Icons.person,
+                activeIcon: Icons.person,
+              ),
+            ],
           ),
-          _navigationBarItem(
-            label: 'Profile',
-            icon: Icons.person,
-            activeIcon: Icons.person,
-          ),
-        ],
-      ),
-    ),
-  );
+        ),
+      );
 
   BottomNavigationBarItem _navigationBarItem({
     Widget? widget,

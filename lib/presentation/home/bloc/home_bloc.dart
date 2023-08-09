@@ -11,9 +11,14 @@ part 'home_state.dart';
 class HomeBloc extends Bloc<HomeEvent, HomeState> {
   HomeBloc() : super(const HomeState()) {
     on<CounterEvent>(_increment);
+    on<VisibleEvent>(_numberVisible);
   }
 
   void _increment(CounterEvent event, Emitter<HomeState> emit) {
     emit(state.copyWith(number: event.number + 1));
+  }
+
+  void _numberVisible(VisibleEvent event, Emitter<HomeState> emit) {
+    emit(state.copyWith(numberVisible: false));
   }
 }

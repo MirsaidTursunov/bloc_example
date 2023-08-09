@@ -13,3 +13,12 @@ class CounterEvent extends HomeEvent {
     return [number];
   }
 }
+
+class VisibleEvent extends HomeEvent {
+  VisibleEvent();
+
+  @override
+  List<Object?> get props {
+    return [];
+  }
+}
