@@ -18,23 +18,34 @@ class CategoryPage extends StatelessWidget {
             padding: const EdgeInsets.all(24),
             scrollDirection: Axis.horizontal,
             itemBuilder: (context, int index) {
-              return Column(
-                children: [
-                  Container(
-                    height: 56,
-                    width: 56,
-                    decoration: const BoxDecoration(
-                        color: Colors.amber, shape: BoxShape.circle),
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(28),
-                      child: Image.network(
-                        state.storiesList[index].image,
-                        fit: BoxFit.cover,
+              return GestureDetector(
+                onTap: () {
+                  context.read<CategoryBloc>().add(IndexChange(index: index));
+                },
+                child: Column(
+                  children: [
+                    Container(
+                      height: 56,
+                      width: 56,
+                      decoration: const BoxDecoration(
+                          color: Colors.amber, shape: BoxShape.circle),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(28),
+                        child: Image.network(
+                          state.storiesList[index].image,
+                          fit: BoxFit.cover,
+                        ),
                       ),
                     ),
-                  ),
-                  Text(state.storiesList[index].title),
-                ],
+                    Text(
+                      state.storiesList[index].title,
+                      style: TextStyle(
+                          color: state.number == index
+                              ? Colors.red
+                              : Colors.black),
+                    ),
+                  ],
+                ),
               );
             },
             separatorBuilder: (_, __) => const SizedBox(width: 10),

@@ -11,3 +11,13 @@ class StoryEvent extends CategoryEvent {
     return [];
   }
 }
+
+class IndexChange extends CategoryEvent {
+  final int index;
+  IndexChange({required this.index});
+
+  @override
+  List<Object?> get props {
+    return [];
+  }
+}

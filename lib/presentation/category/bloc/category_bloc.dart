@@ -9,10 +9,15 @@ part 'category_state.dart';
 class CategoryBloc extends Bloc<CategoryEvent, CategoryState> {
   CategoryBloc() : super(const CategoryState()) {
     on<StoryEvent>(_getStories);
+    on<IndexChange>(_indexChange);
   }
 
   void _getStories(StoryEvent event, Emitter<CategoryState> emit) {
     emit(state.copyWith(storiesList: storyList));
+  }
+
+  void _indexChange(IndexChange event, Emitter<CategoryState> emit) {
+    emit(state.copyWith(number: event.index));
   }
 }
 
