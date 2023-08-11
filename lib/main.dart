@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
           create: (context) => HomeBloc(),
         ),
         BlocProvider(
-          create: (context) => CategoryBloc(),
+          create: (context) => CategoryBloc()..add(StoryEvent()),
         ),
         BlocProvider(
           create: (context) => ProfileBloc(),
