@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "516654150925",
+    "project_id": "sign-in-up-lesson",
+    "storage_bucket": "sign-in-up-lesson.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:516654150925:android:f407f8443a829ce791ec44",
+        "android_client_info": {
+          "package_name": "com.example.bloc_example"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "516654150925-fvunllk7tgj5n9t90s3hde3it0b7hfg3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA1bK9za6vxBP3h2VfT9mqLs7XRoeJltLE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "516654150925-fvunllk7tgj5n9t90s3hde3it0b7hfg3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

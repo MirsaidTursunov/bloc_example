@@ -1,13 +1,18 @@
+import 'package:bloc_example/firebase_options.dart';
 import 'package:bloc_example/presentation/bloc/bloc_observer.dart';
 import 'package:bloc_example/presentation/category/bloc/category_bloc.dart';
 import 'package:bloc_example/presentation/home/bloc/home_bloc.dart';
 import 'package:bloc_example/presentation/main/bloc/main_bloc.dart';
 import 'package:bloc_example/presentation/main/main_page.dart';
 import 'package:bloc_example/presentation/profile/bloc/profile_bloc.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-void main() {
+Future<void> main() async {
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const MyApp());
 }
 
