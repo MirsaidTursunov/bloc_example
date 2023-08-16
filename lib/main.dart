@@ -5,14 +5,14 @@ import 'package:bloc_example/presentation/home/bloc/home_bloc.dart';
 import 'package:bloc_example/presentation/main/bloc/main_bloc.dart';
 import 'package:bloc_example/presentation/main/main_page.dart';
 import 'package:bloc_example/presentation/profile/bloc/profile_bloc.dart';
+import 'package:bloc_example/presentation/service/notification_service.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 Future<void> main() async {
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
+  WidgetsFlutterBinding.ensureInitialized();
+  await NotificationService.initialize();
   runApp(const MyApp());
 }
 

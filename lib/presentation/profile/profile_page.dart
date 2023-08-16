@@ -13,8 +13,19 @@ class ProfilePage extends StatelessWidget {
           appBar: AppBar(
             title: Text('Profile Page'),
           ),
-          body: Center(
-            child: Text('Profile Page'),
+          body: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Center(
+                child: Text('Profile Page'),
+              ),
+              SizedBox(height: 20,),
+              ElevatedButton(
+                  onPressed: () {
+                      context.read<ProfileBloc>().add(SignUpGoogleEvent());
+                  },
+                  child: const Text('Log in with Google')),
+            ],
           ),
         );
       },
